@@ -7,9 +7,6 @@ import { Curso } from './curso/Curso';
 export class CursoserviceService {
 
   cursos: Curso[] = [];
-  nomeCursos: String[] = [];
-  descricaoCursos: String[] = [];
-  emailCursos: String[] = [];
 
   constructor() { }
 

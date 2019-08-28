@@ -34,10 +34,11 @@
         </div>
     </div>
 
-    <div>
-        <div class="col-sm-4">
-            <label for="sexo" class="control-label">Sexo:</label>
-        </div>
+    <div class="col-sm-4">
+        <label for="sexo" class="control-label">Sexo</label>
+    </div>
+
+    <div class="grupo_opcoes">      
         <div class="form-check">
             <input class="form-check-input" type="radio" radio name="sexo" id="sexoMasculino" 
             value="Masculino" #sexo="ngModel" [(ngModel)]="aluno.sexo" checked>
@@ -56,12 +57,13 @@
             </label>
         </div>
     </div>
-    
-    <div>
-        <div class="col-sm-4">
-            <label for="descontoExAluno" class="control-label">Descontos:</label>
-        </div>
 
+    <div class="col-sm-4">
+        <label for="descontoExAluno" class="control-label">Descontos</label>
+    </div>
+
+    <div class="grupo_opcoes">
+        
         <div class="form-check">
             <input class="form-check-input" type="checkbox" checkbox name="descontoExAluno" id="descontoExAluno"
             value=true #descontoExAluno [(ngModel)]="aluno.descontoExAluno">
@@ -93,3 +95,30 @@
 
     <button type="submit" [disabled]="!formulario.valid" class="btn btn-primary">Submeter</button>
 </form>
+
+<h3>Listagem de Alunos</h3>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Data Nascimento</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Sexo</th>
+        <th scope="col">Desconto Promocional</th>
+        <th scope="col">Desconto Ex Aluno</th>
+        <th scope="col">Desconto Trabalhador Industrial</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of alunos">
+        <td>{{ a.nome }}</td>
+        <td>{{ a.dataNascimento }}</td>
+        <td>{{ a.email }}</td>
+        <td>{{ a.sexo }}</td>
+        <td>{{ a.descontoExAluno }}</td>
+        <td>{{ a.descontoPromocional }}</td>
+        <td>{{ a.descontoTrabalhadorIndustrial }} </td>
+      </tr>
+    </tbody>
+</table>
