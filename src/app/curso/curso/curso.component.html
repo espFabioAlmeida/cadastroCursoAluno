@@ -1,4 +1,4 @@
-
+<h3>Castro Curso</h3>
 <form #formulario="ngForm" (ngSubmit) = "onSubmit(formulario)" class="form-horizontal" >
 
     <div class="form-group">
@@ -37,3 +37,22 @@
 
     <button type="submit" [disabled]="!formulario.valid" class="btn btn-primary">Submeter</button>
 </form>
+
+<h3>Listagem de Curso</h3>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Descricão</th>
+        <th scope="col">E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of cursos">
+        <td>{{ c.nome }}</td>
+        <td>{{ c.descricao }}</td>
+        <td>{{ c.email }}</td>
+      </tr>
+    </tbody>
+</table>

@@ -1,5 +1,6 @@
-export class Curso {
-    name: string;
+export class Curso 
+{
+    nome: string;
     email: string;
     descricao: string
 }

@@ -11,10 +11,13 @@ import { Curso } from './Curso'
 export class CursoComponent implements OnInit {
 
   curso: Curso = new Curso();
+  cursos: Curso[] = [];
+  
 
   constructor(private cursoService: CursoserviceService) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
   }
 
   onSubmit(formulario: NgForm)
@@ -30,7 +33,8 @@ export class CursoComponent implements OnInit {
       */
       this.cursoService.cadastraCurso(this.curso);
       this.curso = new Curso();
-      
+      this.cursos = this.cursoService.getCursos();
+      console.log(this.cursos);
     }
   }
 }
