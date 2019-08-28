@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { CursoserviceService } from '../cursoservice.service'
+import { Curso } from './Curso'
 
 @Component({
   selector: 'app-curso',
@@ -8,14 +10,9 @@ import { NgForm } from '@angular/forms';
 })
 export class CursoComponent implements OnInit {
 
-  curso: any =
-  {
-    nome: null,
-    descricao: null,
-    email: null
-  }
+  curso: Curso = new Curso();
 
-  constructor() { }
+  constructor(private cursoService: CursoserviceService) { }
 
   ngOnInit() {
   }
@@ -24,11 +21,16 @@ export class CursoComponent implements OnInit {
   {
     if(formulario.valid)
     {
+      /*
       console.log(formulario);
       console.log('----- Valores do formulario');
       console.log(formulario.form.value);
       console.log('----- Valores do objeto');
       console.log(this.curso);
+      */
+      this.cursoService.cadastraCurso(this.curso);
+      this.curso = new Curso();
+      
     }
   }
 }
